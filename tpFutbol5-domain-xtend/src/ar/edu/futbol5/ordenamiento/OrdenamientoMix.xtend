@@ -13,7 +13,6 @@ class OrdenamientoMix implements CriterioOrdenamiento {
 	}
 	
 	override ordenar(Partido partido) {
-		// BAD SMELL - Se repite el código de ordenar
 		partido.inscriptos.sortBy(calcularValor()).clone.reverse
 	}
 	

@@ -5,8 +5,6 @@ import ar.edu.futbol5.Partido
 class OrdenamientoCalificacionUltimos2Partidos implements CriterioOrdenamiento {
 	
 	override ordenar(Partido partido) {
-		// BAD SMELL - las últimas dos calificaciones podría ser un método en jugador
-		// Y además en lugar de recibir el partido podría devolver simplemente el bloque de ordenamiento
 		partido.getInscriptos.sortBy (calcularValor()).clone.reverse
 	}
 	

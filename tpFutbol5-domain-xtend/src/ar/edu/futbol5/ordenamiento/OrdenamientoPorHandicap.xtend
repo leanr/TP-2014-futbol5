@@ -5,7 +5,6 @@ import ar.edu.futbol5.Partido
 class OrdenamientoPorHandicap implements CriterioOrdenamiento {
 	
 	override ordenar(Partido partido) {
-		// BAD SMELL - Se repite el código de ordenar
 		partido.inscriptos.sortBy(calcularValor()).clone.reverse
 	}
 	
