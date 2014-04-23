@@ -10,7 +10,6 @@ import ar.edu.futbol5.Partido;
 
 public class OrdenamientoPorHandicap implements CriterioOrdenamiento {
 	
-	// BAD SMELL - Se repite el código de ordenar
 	public List<Jugador> ordenar(Partido partido) {
 		Collections.sort(partido.getInscriptos(), new Comparator<Jugador>() {
 			@Override

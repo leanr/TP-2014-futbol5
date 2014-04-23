@@ -8,8 +8,6 @@ import java.util.List;
 
 public interface CriterioOrdenamiento {
 	
-	// BAD SMELL - Cada subclase tiene que hacer un sort by de la colección
-	// la interfaz podría devolver únicamente el bloque
 	public List<Jugador> ordenar(Partido partido);
 
 	public Double calcularValor(Jugador jugador);

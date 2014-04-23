@@ -17,7 +17,6 @@ public class OrdenamientoMix implements CriterioOrdenamiento {
 		criterios = new ArrayList<CriterioOrdenamiento>();
 	}
 	
-	// BAD SMELL - Se repite el código de ordenar
 	public List<Jugador> ordenar(Partido partido) {
 		Collections.sort(partido.getInscriptos(), new Comparator<Jugador>() {
 			@Override

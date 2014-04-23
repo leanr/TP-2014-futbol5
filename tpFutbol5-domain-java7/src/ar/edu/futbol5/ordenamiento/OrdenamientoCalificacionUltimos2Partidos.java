@@ -11,8 +11,6 @@ import ar.edu.futbol5.Partido;
 public class OrdenamientoCalificacionUltimos2Partidos implements CriterioOrdenamiento {
 	
 	
-	// BAD SMELL - las últimas dos calificaciones podría ser un método en jugador
-	// Y además en lugar de recibir el partido podría devolver simplemente el bloque de ordenamiento
 	public List<Jugador> ordenar(Partido partido) {
 		Collections.sort(partido.getInscriptos(), new Comparator<Jugador>() {
 			@Override
