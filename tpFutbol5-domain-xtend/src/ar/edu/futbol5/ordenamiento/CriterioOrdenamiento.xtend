@@ -6,7 +6,7 @@ import java.util.List
 
 interface CriterioOrdenamiento {
 	
-	def List<Jugador> ordenar(Partido partido)
+	def List<Jugador> ordenar(Partido partido) 
 
 	def (Jugador) => Double calcularValor()
 		 

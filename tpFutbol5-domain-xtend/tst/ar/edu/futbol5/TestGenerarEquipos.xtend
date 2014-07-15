@@ -7,6 +7,9 @@ import ar.edu.futbol5.ordenamiento.OrdenamientoPorHandicap
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
+import ar.edu.futbol5.distribucion.Distribucion14589
+import ar.edu.futbol5.distribucion.DistribucionParImpar
+import ar.edu.futbol5.confirmarequipos.PartidoCerrado
 
 class TestGenerarEquipos {
 
@@ -131,28 +134,38 @@ class TestGenerarEquipos {
 
 	@Test
 	def void distribuirEquiposParEImpar() {
-		partido1.cerrar
+		partido1.criterioDistribucionEquipos = new DistribucionParImpar
+		partido1.estado = new PartidoCerrado
+		partido1.criterioOrdenamiento = new OrdenamientoPorHandicap
 		partido1.generarEquipos
-		Assert.assertArrayEquals(newArrayList(ferme, pato, lechu, rodri, leo), partido1.equipo1.jugadores)
-		Assert.assertArrayEquals(newArrayList(roly, dodi, chicho, sytek, mike), partido1.equipo2.jugadores)
+		Assert.assertArrayEquals(newArrayList(ferme, pato, lechu, rodri, leo), partido1.equipo1)
+		Assert.assertArrayEquals(newArrayList(roly, dodi, chicho, sytek, mike), partido1.equipo2)
 	}
 
 	@Test
 	def void distribuirEquipos14589() {
-		partido1.distribucionEquipos = 16 // ordenamiento
+		partido1.criterioDistribucionEquipos = new Distribucion14589  // ordenamiento
 		partido1.cerrar
 		partido1.generarEquipos
-		Assert.assertArrayEquals(newArrayList(ferme, dodi, lechu, sytek, leo), partido1.equipo1.jugadores)
-		Assert.assertArrayEquals(newArrayList(roly, pato, chicho, rodri, mike), partido1.equipo2.jugadores)
+		Assert.assertArrayEquals(newArrayList(ferme, dodi, lechu, sytek, leo), partido1.equipo1)
+		Assert.assertArrayEquals(newArrayList(roly, pato, chicho, rodri, mike), partido1.equipo2)
+		
 	}
 
 	@Test(expected=typeof(BusinessException))
 	def void generarEquiposCuandoSeCierra() {
-		partido1.distribucionEquipos = 16 // ordenamiento
+		partido1.criterioDistribucionEquipos = new Distribucion14589  // ordenamiento
 		partido1.cerrar
-		partido1.generarEquipos
+		partido1.generarEquipos//el estado pasaria a ser generado
 		partido1.generarEquipos
 	}
+	
+	@Test
+	def void cerrarPartido() {
+		partido1.cerrar
+		
+	}
+	
 
 	/** *************************************************************************
 	 * METODOS AUXILIARES DE LOS TESTS
