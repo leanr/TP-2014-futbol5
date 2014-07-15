@@ -71,12 +71,12 @@ class TestGenerarEquipos {
 		inscribir(partido1, ferme)
 	}
 
-	@Test(expected=typeof(BusinessException))
+	/* @Test(expected=typeof(BusinessException))
 	def void pocosInscriptosNoGeneranEquipos() {
 		partidoPocosJugadores.generarEquipos
 	}
 
-	@Test(expected=typeof(BusinessException))
+*/	@Test(expected=typeof(BusinessException))
 	def void partidoSinIniciarNoPuedeGenerarEquipos() {
 		(1 .. 4).forEach[inscribir(partidoPocosJugadores, new Jugador)]
 		partidoPocosJugadores.generarEquipos
