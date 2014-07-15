@@ -135,7 +135,7 @@ class TestGenerarEquipos {
 	@Test
 	def void distribuirEquiposParEImpar() {
 		partido1.criterioDistribucionEquipos = new DistribucionParImpar
-		partido1.estado = new PartidoCerrado
+		partido1.cerrar 
 		partido1.criterioOrdenamiento = new OrdenamientoPorHandicap
 		partido1.generarEquipos
 		Assert.assertArrayEquals(newArrayList(ferme, pato, lechu, rodri, leo), partido1.equipo1)

@@ -28,7 +28,7 @@ class Partido {
 	}
 
 	def generarEquipos() {
-		if (inscriptos.size < 10){
+		if (inscriptos.size == 10){
 		estado.generarEquipos(this)
 		}
 				
