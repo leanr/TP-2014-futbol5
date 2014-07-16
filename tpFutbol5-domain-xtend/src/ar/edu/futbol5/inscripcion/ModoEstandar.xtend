@@ -7,5 +7,9 @@ class ModoEstandar implements CriterioInscripcion {
 	override toString() {
 		"Estándar"
 	}
+	
+	override dejaLugarAOtro(){
+		return false
+	}
 		
 }

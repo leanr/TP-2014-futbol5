@@ -8,4 +8,8 @@ class ModoSolidario implements CriterioInscripcion {
 		"Solidario"
 	}
 	
+	override dejaLugarAOtro(){
+		return true
+	}
+	
 }
