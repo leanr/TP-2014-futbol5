@@ -6,13 +6,14 @@ import ar.edu.futbol5.Jugador
 import java.util.List
 
 class Distribucion14589 implements DistribucionInterfaz {
-	//@Property List<Integer>  listPosicionesValidas =  newArrayList(0,3,4,7,8)
+	@Property List<Integer>  listPosicionesValidas =  newArrayList(0,3,4,7,8)
+	
 	
 	override distribuirEquipos(Partido partido , List<Jugador> jugadores) {
 		
 				
-	val equipoA = newArrayList(jugadores.get(0), jugadores.get(3), jugadores.get(4), jugadores.get(7),jugadores.get(8))
-	val equipoB = newArrayList(jugadores.get(1), jugadores.get(2), jugadores.get(5), jugadores.get(6),jugadores.get(9))
+	val equipoA = jugadores.filter[jug|jug.es14589(jugadores)]
+	val equipoB = jugadores.filter[jug|jug.esOtraPosicion(jugadores)]
 	
 	partido.setEquipo1(equipoA)
 	partido.setEquipo2(equipoB)
@@ -20,6 +21,18 @@ class Distribucion14589 implements DistribucionInterfaz {
 		
 	}
 	
+	def es14589(Jugador jugador,List <Jugador> jugadores){
+		val posicionJug = (jugadores.indexOf(jugador))
+		listPosicionesValidas.contains(posicionJug)
+		
+		}
+
+	
+	def esOtraPosicion(Jugador jugador,List <Jugador> jugadores){
+
+	val posicionJug = (jugadores.indexOf(jugador))
+	!listPosicionesValidas.contains(posicionJug)
+}
 	
 
 	

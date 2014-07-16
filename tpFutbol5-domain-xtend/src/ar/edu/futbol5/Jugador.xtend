@@ -44,6 +44,14 @@ class Jugador {
 		nombre
 	}
 	
+	def esPar(List<Jugador> jugadores) {
+		val posicionJug = jugadores.indexOf(this)
+		(posicionJug % 2) == 0
+	}
+	
+	def esImpar(List<Jugador> jugadores){
+		!this.esPar(jugadores)
+	}
 
 }
 

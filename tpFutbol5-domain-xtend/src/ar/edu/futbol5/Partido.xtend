@@ -14,8 +14,8 @@ import ar.edu.futbol5.confirmarequipos.PartidoCerrado
 class Partido {
 
 	@Property List<Jugador> inscriptos
-	@Property List<Jugador> equipo1
-	@Property List<Jugador> equipo2
+	@Property Iterable<Jugador> equipo1
+	@Property Iterable<Jugador> equipo2
 	@Property PartidoInt estado
 	@Property CriterioOrdenamiento criterioOrdenamiento
 	@Property DistribucionInterfaz criterioDistribucionEquipos 

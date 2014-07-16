@@ -8,13 +8,23 @@ class DistribucionParImpar implements DistribucionInterfaz {
 	override distribuirEquipos(Partido partido,List<Jugador> jugadores) {
 		
 		
-		val equipoA= newArrayList(jugadores.get(0), jugadores.get(2), jugadores.get(4), jugadores.get(6),jugadores.get(8))
-		val equipoB= newArrayList(jugadores.get(1), jugadores.get(3), jugadores.get(5), jugadores.get(7),jugadores.get(9))
+		val equipoA= jugadores.obtenerLosPares()
+		val equipoB= jugadores.obtenerLosImpares()
 		
 		partido.setEquipo1(equipoA)
 		partido.setEquipo2(equipoB)
 
 	}
+
+	def obtenerLosPares(List<Jugador> jugadores){
+		jugadores.filter[jug|jug.esPar(jugadores)]
+	
+}
+
+def obtenerLosImpares(List<Jugador> jugadores){
+		jugadores.filter[jug|jug.esImpar(jugadores)]
+	
+}
 
 
 
